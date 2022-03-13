@@ -1,4 +1,5 @@
 const fpEndpoint = 'https://fornpunkt.se/raa/lamning/';
+const commonsUploadEndpoint = 'https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=Kulturl%C3%A4mningar&id=';
 
 function waitForElm(selector) {
   return new Promise(resolve => {
@@ -56,8 +57,10 @@ function doStuff() {
       fpContainer.appendChild(header);
 
       const lamningUrl = fpEndpoint + uuid;
+      const commonsUrl = commonsUploadEndpoint + uuid;
       fpContainer.appendChild(fpBtn(lamningUrl, 'Öppna i FornPunkt'));
       fpContainer.appendChild(fpBtn(lamningUrl + '#kommentarer', 'Kommentera'));
+      fpContainer.appendChild(fpBtn(commonsUrl, 'Ladda upp en bild'));
 
       target.appendChild(fpContainer);
     });
